@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Recursividad en Programación</title>
+    <!-- Configuración de Tailwind para usar el color principal de UML como referencia -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'uml-blue': '#1a3a6f',
+                        'uml-gold': '#fdb913',
+                        'accent-dark': '#0f294a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <div class="max-w-7xl mx-auto p-4 md:p-10">
+        
+        <!-- HEADER ACADÉMICO -->
+        <header class="text-center mb-10 p-6 bg-uml-blue rounded-xl shadow-lg">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
+                Recursividad en Programación
+            </h1>
+            <p class="text-xl text-uml-gold font-semibold">
+                Fundamentos y Optimización de Algoritmos
+            </p>
+            <div class="mt-4 text-sm text-gray-200">
+                <span class="block">Universidad Martín Lutero – UML, Sede Ocotal, NS.</span>
+                <span class="block">Estructuras de Datos | Ing. Jony Wilhem Ponce Muñoz</span>
+            </div>
+        </header>
+
+        <!-- SECCIÓN 1: INTRODUCCIÓN Y COMPARACIÓN -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-accent-dark border-b-4 border-uml-gold pb-2 mb-6">
+                1. ¿Qué es Recursividad?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Definición -->
+                <div class="md:col-span-1 p-6 bg-white rounded-lg shadow-md border-t-4 border-uml-blue">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <!-- Icono de Bucle -->
+                        <svg class="w-8 h-8 text-uml-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <h3 class="text-xl font-semibold">Concepto Central</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Una función se llama a sí misma repetidamente para resolver un problema. Es la forma más natural de manipular estructuras jerárquicas (árboles).
+                    </p>
+                </div>
+
+                <!-- Comparación -->
+                <div class="md:col-span-2 p-6 bg-white rounded-lg shadow-md border-t-4 border-uml-blue">
+                    <h3 class="text-xl font-semibold mb-4">Recursividad vs. Iteración</h3>
+                    <div class="grid grid-cols-2 gap-4 text-center font-medium">
+                        <div class="p-3 bg-blue-50 rounded-lg">
+                            <span class="text-uml-blue block text-lg font-bold">RECURSIVIDAD</span>
+                            <span class="text-sm block">Usa la pila de llamadas (stack)</span>
+                            <span class="text-xs text-red-600 font-normal">Riesgo de desbordamiento de pila (stack overflow)</span>
+                        </div>
+                        <div class="p-3 bg-green-50 rounded-lg">
+                            <span class="text-uml-blue block text-lg font-bold">ITERACIÓN</span>
+                            <span class="text-sm block">Usa estructuras de bucle (<code>for</code>, <code>while</code>)</span>
+                            <span class="text-xs text-green-600 font-normal">Más eficiente en memoria</span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm italic text-gray-500">
+                        La recursión ofrece elegancia, la iteración, eficiencia en recursos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: FUNDAMENTOS TEÓRICOS -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-accent-dark border-b-4 border-uml-gold pb-2 mb-6">
+                2. Fundamentos Teóricos
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Caso Base -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-inner flex flex-col items-center text-center">
+                    <!-- Icono de Parada -->
+                    <svg class="w-10 h-10 text-green-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <h3 class="text-lg font-bold mb-2 text-green-700">CASO BASE (Parada)</h3>
+                    <p class="text-sm text-gray-700">
+                        Condición que resuelve el problema en su forma más simple y detiene la recursión. Sin él, hay un bucle infinito.
+                    </p>
+                </div>
+                <!-- Caso Recursivo -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-inner flex flex-col items-center text-center">
+                    <!-- Icono de Descomposición -->
+                    <svg class="w-10 h-10 text-red-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 13h10a4 4 0 004-4V5a2 2 0 00-2-2H5a2 2 0 00-2 2v4a4 4 0 004 4z"></path></svg>
+                    <h3 class="text-lg font-bold mb-2 text-red-700">CASO RECURSIVO</h3>
+                    <p class="text-sm text-gray-700">
+                        Reduce el problema a una versión más pequeña de sí mismo, acercándose sistemáticamente al caso base.
+                    </p>
+                </div>
+                 <!-- Inducción -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-inner flex flex-col items-center text-center">
+                    <!-- Icono de Lógica -->
+                    <svg class="w-10 h-10 text-purple-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                    <h3 class="text-lg font-bold mb-2 text-purple-700">INDUCCIÓN MATEMÁTICA</h3>
+                    <p class="text-sm text-gray-700">
+                        Justificación formal: se asume que la solución de $F(n-1)$ es correcta para construir la solución de $F(n)$.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: TIPOS DE RECURSIÓN -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-accent-dark border-b-4 border-uml-gold pb-2 mb-6">
+                3. Tipos de Recursión
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Directa -->
+                <div class="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-8 border-cyan-500">
+                    <h3 class="text-xl font-bold mb-1 text-cyan-700">DIRECTA</h3>
+                    <p class="text-sm text-gray-600">
+                        La función se llama a sí misma directamente. (Ej. Factorial)
+                    </p>
+                </div>
+
+                <!-- Indirecta -->
+                <div class="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-8 border-orange-500">
+                    <h3 class="text-xl font-bold mb-1 text-orange-700">INDIRECTA</h3>
+                    <p class="text-sm text-gray-600">
+                        Dos o más funciones se llaman mutuamente (A llama a B, B llama a A).
+                    </p>
+                </div>
+
+                <!-- De Cola -->
+                <div class="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-8 border-green-500">
+                    <h3 class="text-xl font-bold mb-1 text-green-700">DE COLA (Tail)</h3>
+                    <p class="text-sm text-gray-600">
+                        La llamada recursiva es la última instrucción. Puede ser optimizada (optimización de llamada de cola — TCO).
+                    </p>
+                </div>
+
+                <!-- Múltiple -->
+                <div class="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-l-8 border-red-500">
+                    <h3 class="text-xl font-bold mb-1 text-red-700">MÚLTIPLE</h3>
+                    <p class="text-sm text-gray-600">
+                        La función se llama a sí misma más de una vez. (Ej. Fibonacci sin optimizar).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: EJEMPLO Y OPTIMIZACIÓN (FIBONACCI) -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-accent-dark border-b-4 border-uml-gold pb-2 mb-6">
+                4. Caso Práctico: Fibonacci con Memoización
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                
+                <!-- Problema -->
+                <div class="lg:col-span-2 p-6 bg-red-50 rounded-lg shadow-xl border-t-4 border-red-600">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <span class="text-3xl font-extrabold text-red-600">F(n)</span>
+                        <h3 class="text-xl font-bold text-red-700">PROBLEMA: Recursión Múltiple Simple</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        <code>F(n) = F(n-1) + F(n-2)</code>. Sin optimización, el algoritmo es muy lento (O(2^n)) porque recalcula los mismos subproblemas muchas veces.
+                    </p>
+                    <p class="mt-3 text-sm italic text-red-500">
+                        Ejemplo: Para calcular F(5), se calcula F(3) dos veces, F(2) tres veces, etc.
+                    </p>
+                </div>
+
+                <!-- Flecha -->
+                <div class="lg:col-span-1 flex items-center justify-center p-4">
+                    <!-- Icono de flecha grande y visible en móviles y desktops -->
+                    <svg class="w-12 h-12 text-uml-gold transform rotate-90 lg:rotate-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"></path></svg>
+                </div>
+
+                <!-- Solución (Memoización) -->
+                <div class="lg:col-span-2 p-6 bg-green-50 rounded-lg shadow-xl border-t-4 border-green-600">
+                     <div class="flex items-center space-x-3 mb-3">
+                        <!-- Icono de Caché -->
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10M20 7v10M4 7h16M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2M4 17h16M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"></path></svg>
+                        <h3 class="text-xl font-bold text-green-700">SOLUCIÓN: Memoización</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Técnica de programación dinámica que usa un diccionario (<code>memo</code>) para guardar los resultados de subproblemas ya calculados.
+                    </p>
+                    <div class="mt-3 bg-green-100 p-2 rounded-md">
+                        <p class="font-bold text-green-800">Eficiencia lograda: O(n)</p>
+                        <p class="text-xs text-green-700">Cada valor <code>F(k)</code> solo se calcula una vez.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
